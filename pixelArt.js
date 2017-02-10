@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 square.setAttribute('class', 'square')
                 square.style.height = '20px'
                 square.style.width = '20px'
-                square.style.border = '1px solid black'
+                square.style.border = '1px solid SlateGray'
                 square.style.display = 'inline-block'
                 row.appendChild(square)
             }
@@ -26,8 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
     createCanvas()
     //
     function createPalette() {
-        var colors = ['DarkSeaGreen', 'DarkSalmon', 'LightSeaGreen', 'SandyBrown', 'Thistle', 'Coral', 'Aquamarine', 'MistyRose', 'White', 'Black'];
-        for (var i = 0; i < 1; i++) {
+        var colors = ['#bd2e1a', '#ff5555', '#ffb260', '#fffd61', '#b6f577', '#6cf2ae', '#64a6ed', '#506de8', '#9775bd', '#603ab8'];
+        var greyScale = ['#fff', '#ddd', '#bbb', '#999', '#777', '#666','#555', '#333', '#222', '#000'];
+        for (var i = 0; i < 3; i++) {
             line = document.createElement('div')
             line.setAttribute('class', 'line')
             line.style.lineHeight = 'none';
@@ -40,7 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 circle.style.display = 'inline-block'
                 circle.style.borderRadius = '50%'
                 circle.style.margin = '10px'
+                if (i === 0) {
                 circle.style.backgroundColor = colors[j]
+              } else if (i === 1) {
+                circle.style.backgroundColor = greyScale[j]
+              }
                 line.appendChild(circle)
             }
             palette.appendChild(line)
@@ -53,51 +58,20 @@ document.addEventListener('DOMContentLoaded', function() {
             event.target.style.backgroundColor = clickedColor
             canvas.addEventListener('mouseover', colorMe)
             canvas.addEventListener('mouseup', function() {
-              canvas.removeEventListener('mouseover', colorMe)
+                canvas.removeEventListener('mouseover', colorMe)
             })
         }
     }
 
     canvas.addEventListener('mousedown', colorMe)
 
-    var clickedColor = 'white'
+    var clickedColor = 'SlateGray'
     var clickMe = function() {
-      if (event.target.classList.contains('circle')) {
-        clickedColor = event.target.style.backgroundColor
-      }
+        if (event.target.classList.contains('circle')) {
+            clickedColor = event.target.style.backgroundColor
+        }
     }
 
     palette.addEventListener('click', clickMe)
-    // var red = false;
-    // var blue = false;
-    // var green = false;
-    //
-    // var colorMe = function () {
-    //   if (red === true) {
-    //   event.target.classList.toggle('red')
-    //   red = false;
-    // } else if (blue === true) {
-    //   event.target.classList.toggle('blue')
-    //   blue = false;
-    // } else if (green === true) {
-    //   event.target.classList.toggle('green')
-    //   green = false;
-    // }
-    // }
-    //
-    // var pickColor = function () {
-    //   var current = event.target
-    //   if (current.classList.contains('red')) {
-    //     red = true;
-    //   } else if (current.classList.contains('blue')){
-    //     blue = true;
-    //   } else if (current.classList.contains('green')){
-    //     green = true;
-    //   }
-    // }
-    //
-    // palette.addEventListener('click', pickColor)
-    // canvas.addEventListener('click', colorMe)
-
 
 });

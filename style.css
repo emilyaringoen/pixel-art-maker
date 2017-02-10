@@ -1,11 +1,23 @@
-.red {
-  background-color: red;
+* {
+    text-align: center;
 }
 
-.blue {
-  background-color: blue;
+body {
+    background-image: url('http://subtlepatterns.com/patterns/ep_naturalwhite.png');
+    background-repeat: repeat;
 }
 
-.green {
-  background-color: green;
+h1 {
+    font-family: 'Rubik Mono One', sans-serif;
+    letter-spacing: 2px;
+    font-size: 3em;
+}
+
+#maker {
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: lighter;
+}
+
+h3 {
+    font-family: 'Rubik Mono One', sans-serif;
 }
