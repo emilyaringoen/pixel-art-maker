@@ -42,4 +42,12 @@ button {
     border-radius: 3px;
 }
 
-.canvas
+.canvas {
+  width: 68em;
+  text-align: center;
+  margin: auto;
+}
+
+.paintBrush {
+  cursor: url('https://images.vexels.com/media/users/3/131677/isolated/lists/5517f3c8facf7ff407aaa7752c00e8a5-paintbrush-tool.png'), auto
+}

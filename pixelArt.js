@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
             for (var j = 0; j < 60; j++) {
                 square = document.createElement('div')
                 square.setAttribute('class', 'square')
-                square.style.height = '15px'
-                square.style.width = '15px'
+                square.style.height = '1em'
+                square.style.width = '1em'
                 square.style.border = '1px solid SlateGray'
                 square.style.display = 'inline-block'
                 row.appendChild(square)
@@ -67,11 +67,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     canvas.addEventListener('mousedown', colorMe)
 
-    var clickedColor = 'SlateGray'
+    var clickedColor = 'rgb(113, 204, 228)'
     var clickMe = function() {
         if (event.target.classList.contains('circle')) {
             clickedColor = event.target.style.backgroundColor
+            event.target.className = ' paintBrush'
         }
+        console.log(event.target)
     }
 
     palette.addEventListener('click', clickMe)
@@ -105,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
             saveArr.push(squares[i].style.backgroundColor)
         }
         localStorage.setItem('savedCanvas', JSON.stringify(saveArr))
+        console.log(saveArr)
     }
 
     save.addEventListener('click', saveCanvas)
@@ -119,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (var i = 0; i < savedArr.length; i++) {
           squares[i].style.backgroundColor = savedArr[i]
         }
+        // localStorage.removeItem('saveArr');
     }
 
     load.addEventListener('click', getCanvas)
